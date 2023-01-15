@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <h1>Page Count: {count}</h1>
     </div>
-  );
+  )
 }
 
 export default App;
