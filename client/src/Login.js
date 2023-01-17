@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const LoginPage = ( {updatePatient} ) => {
+const LoginPage = ( {setCurrentUser} ) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -27,7 +27,7 @@ const LoginPage = ( {updatePatient} ) => {
             .then(res => {
                 if (res.ok) {
                     res.json().then(patient => {
-                        updatePatient(patient)
+                        setCurrentUser(patient)
                         navigate(`/patients/${patient.id}`)
                     })
                 } else {
@@ -46,22 +46,21 @@ const LoginPage = ( {updatePatient} ) => {
 
     return (
         <div>
-            <h1>{location.pathname}</h1>
-            <h1>Mindful</h1>
-            <h3>Take control over your medications</h3>
+            <h1 className="title">Mindful</h1>
+            <h2>Take control over your medications</h2>
             <form onSubmit={submitHandler}>
                 <input type='text' placeholder="Email" name='email' value={email} onChange={changeHandler} />
                 <br /> <br />
                 <input type='password' placeholder="Password" value={password} name='password' onChange={changeHandler}/>
                 <br /><br />
 
-                <input type='submit' value='Log In' />
+                <button className="update-profile-btn" type='submit' value='Log In'>Log In</button>
             </form>
             {errors ? <div>{errors}</div> : null}
             <br />
             <hr></hr>
             <h3>You don't already have an account?</h3>
-            <button onClick={navigateToSignupPage}>Signup for Free</button>
+            <button className="sign-up-profile-btn" onClick={navigateToSignupPage}>Signup for Free</button>
         </div>
     )
 }

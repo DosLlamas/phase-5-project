@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get '/hello', to: 'application#hello_world'
   post '/login', to: 'sessions#create'
-  post '/signup', to: 'patients#create'
   delete '/logout', to:'sessions#delete' 
+  post '/signup', to: 'patients#create'
   get '/authorized_user', to: 'patients#show'
+  delete 'destroy-user', to: 'patients#destroy'
 
   # handles requests that aren't for the app's API routes by returning public/index.html
   get '*path',
