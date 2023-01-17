@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const LoginPage = ( {setCurrentUser} ) => {
     const navigate = useNavigate();
-    const location = useLocation();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -28,7 +27,7 @@ const LoginPage = ( {setCurrentUser} ) => {
                 if (res.ok) {
                     res.json().then(patient => {
                         setCurrentUser(patient)
-                        navigate(`/patients/${patient.id}`)
+                        navigate("/")
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))

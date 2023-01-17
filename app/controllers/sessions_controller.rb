@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       end
       def show
         patient = Patient.find_by(id: session[:patient_id])
-        render json: patient
+        render json: patient.json
       end
     
       def delete

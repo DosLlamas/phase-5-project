@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 /*^^ For later, how do I get navlink to look better? */
 
-const Nav = () => {
+const Nav = ( {currentUser} ) => {
 
     return (
         <nav>
