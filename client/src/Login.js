@@ -27,7 +27,7 @@ const LoginPage = ( {setCurrentUser} ) => {
                 if (res.ok) {
                     res.json().then(patient => {
                         setCurrentUser(patient)
-                        navigate("/")
+                        navigate("/home")
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))

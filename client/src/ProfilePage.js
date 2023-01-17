@@ -55,7 +55,7 @@ const ProfilePage = ({ setCurrentUser }) => {
       }).then((res) => {
         if (res.ok) {
           setCurrentUser(false);
-          navigate("/login");
+          navigate("/");
         }
       });
     }

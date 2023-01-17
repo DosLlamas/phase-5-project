@@ -32,7 +32,7 @@ const Signup = ( {setCurrentUser} ) => {
             .then(res => {
                 if (res.ok) {
                     res.json().then(user => {
-                        navigate(`/login`) 
+                        navigate(`/home`) 
                         /*
                         Stretch goal: log in for the user automatically on sign up instead
                         of navigating to login page
@@ -59,7 +59,7 @@ const Signup = ( {setCurrentUser} ) => {
                 <br /> <br />
                 <input type='text' placeholder="Last Name" name='last_name' value={last_name} onChange={changeHandler}/>
                 <br /><br />
-                <input type='text' placeholder="Date of Birth" name='d_o_b' value={d_o_b} onChange={changeHandler} />
+                <input type='date' placeholder="Date of Birth" name='d_o_b' value={d_o_b} onChange={changeHandler} />
                 <br /> <br />
                 <input type='text' placeholder="Email" name='email' value={email} onChange={changeHandler}/>
                 <br /><br />

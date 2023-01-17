@@ -1,10 +1,6 @@
 class PatientsController < ApplicationController
 
-    skip_before_action :authorized_user, only: [:create, :index]
-
-    def index
-        render json: Patient.all
-    end
+    skip_before_action :authorized_user, only: [:create]
 
     def show
         render json: current_user

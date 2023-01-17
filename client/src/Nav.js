@@ -8,7 +8,7 @@ const Nav = ( {currentUser} ) => {
         <nav>
             <div className="nav-bar-container">
                 <div className='navlink-button'>
-                    <NavLink to={'/'} >
+                    <NavLink to={'/home'} >
                         🏠 
                     </NavLink>
                 </div>
@@ -22,11 +22,11 @@ const Nav = ( {currentUser} ) => {
                         Search
                     </NavLink>
                 </div>
-                <div className='navlink-button'>
-                    <NavLink to={'/login'} >
+                {/* <div className='navlink-button'>
+                    <NavLink to={'/'} >
                         Login
                     </NavLink>
-                </div>
+                </div> */}
                 <div className='navlink-button'>
                     Share
                 </div>

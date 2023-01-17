@@ -20,12 +20,11 @@ function App() {
         if (res.ok) {
           res.json()
             .then((patient) => {
-              setCurrentUser(patient);
+              // setCurrentUser(patient);
             });
-          }
-          else{
-          window.location.reload(false);
-          navigate("/login")
+        }
+        else{
+          navigate("/")
         }
       })
   }, [])
@@ -34,12 +33,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-      <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-        <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>} />
+      <Route path="/home" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+        <Route path="/" element={<Login setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser}/>} />
         <Route path="/personal-info" element={<ProfilePage setCurrentUser={setCurrentUser}/>} />
       </Routes>
-      <Nav currentUser={currentUser}/>
+      {currentUser? <Nav /> : null}
     </div>
   )
 }
