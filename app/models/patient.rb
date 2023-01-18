@@ -5,6 +5,6 @@ class Patient < ApplicationRecord
 
     validates :first_name, :last_name, :email, :password, presence: true, on: :create
     validates :email, uniqueness: true
-    validates :password, presence: true, on: :create
-
+    validates :password, presence: true, on: :create 
+    validates :password, length: { minimum: 8 }
 end

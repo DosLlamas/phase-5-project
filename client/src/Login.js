@@ -57,8 +57,12 @@ const LoginPage = ( {setCurrentUser} ) => {
             </form>
             {errors ? <div>{errors}</div> : null}
             <br />
-            <hr></hr>
-            <h3>You don't already have an account?</h3>
+            <div className="or-container">
+                <div className="or-left-line"></div>
+                <p className="or">OR</p>
+                <div className="or-right-line"></div>
+            </div>
+            <h2>You don't already have an account?</h2>
             <button className="sign-up-profile-btn" onClick={navigateToSignupPage}>Signup for Free</button>
         </div>
     )

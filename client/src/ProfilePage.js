@@ -71,7 +71,8 @@ const ProfilePage = ({ setCurrentUser }) => {
         fetch("destroy-user", {
           method: "DELETE",
         });
-        navigate("/login");
+        setCurrentUser(false);
+        navigate("/");
         window.location.reload(false);
       }
     }
@@ -113,7 +114,7 @@ const ProfilePage = ({ setCurrentUser }) => {
                 <label>
                   <span>Birthday</span>
                   <input
-                    type="text"
+                    type="date"
                     placeholder="Date of Birth"
                     name="d_o_b"
                     value={d_o_b}

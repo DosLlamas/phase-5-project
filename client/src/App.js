@@ -37,6 +37,7 @@ function App() {
         <Route path="/" element={<Login setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser}/>} />
         <Route path="/personal-info" element={<ProfilePage setCurrentUser={setCurrentUser}/>} />
+        <Route path="*" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
       </Routes>
       {currentUser? <Nav /> : null}
     </div>
