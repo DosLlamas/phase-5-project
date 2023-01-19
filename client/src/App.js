@@ -6,6 +6,8 @@ import Nav from './Nav';
 import Login from './Login';
 import Signup from './Signup';
 import ProfilePage from './ProfilePage';
+import Search from './Search';
+
 
 function App() {
 
@@ -37,6 +39,7 @@ function App() {
         <Route path="/" element={<Login setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser}/>} />
         <Route path="/personal-info" element={<ProfilePage setCurrentUser={setCurrentUser}/>} />
+        <Route path="/search-prescriptions" element={<Search setCurrentUser={setCurrentUser}/>} />
         <Route path="*" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
       </Routes>
       {currentUser? <Nav /> : null}

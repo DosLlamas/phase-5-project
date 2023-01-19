@@ -129,7 +129,7 @@ const ProfilePage = ({ setCurrentUser }) => {
         </div>
         <div className="info-container">
           <div className="basic-info-container">
-            <h2>Login Info</h2>
+            <h2>Account Info</h2>
             <div className="basic-info-content">
               <label>
                 <span>Email</span>
