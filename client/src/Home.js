@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate} from 'react-router-dom';
+import {format} from "date-fns";
+import Calendar from "./Calendar";
+
 
 const Home = ( {currentUser, setCurrentUser} ) => {
-    const navigate = useNavigate();
-    const location = useLocation();
+
+    const [showDetails, setShowDetails] = useState(true);
+    const current = format((new Date()), "ccc dd MMM yy");
+    const [data, setData] = useState(current);
+  
+    const showDetailsHandle = (dayStr) => {
+      setData(dayStr);
+      setShowDetails(true);
+    };
 
         return (
-            <div>
-               <h1>{location.pathname}</h1>
+            <div className='Home'>
+               <Calendar showDetailsHandle={showDetailsHandle} data={data} current={current}/>
             </div>
         )
 }
