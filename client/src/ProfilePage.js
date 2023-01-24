@@ -8,7 +8,7 @@ const ProfilePage = ({ setCurrentUser }) => {
     make a fetch so the user can see what their previous profile info was
   */
 
-  const [updateMessage, setUpdateMessage] = useState('')
+  const [updateMessage, setUpdateMessage] = useState("");
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -21,7 +21,7 @@ const ProfilePage = ({ setCurrentUser }) => {
   const { first_name, last_name, d_o_b, email, password } = formData;
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const newUpdateUserInfo = {
       first_name,
       last_name,
@@ -35,8 +35,9 @@ const ProfilePage = ({ setCurrentUser }) => {
       body: JSON.stringify(newUpdateUserInfo),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((patient) => {});
-        setUpdateMessage('Saved')
+        res.json().then((patient) => {
+          setUpdateMessage("Saved");
+        });
       } else {
         res.json().then((json) => setErrors(Object.entries(json.errors)));
       }
@@ -163,7 +164,7 @@ const ProfilePage = ({ setCurrentUser }) => {
           Update Profile
         </button>
       </form>
-      {updateMessage}
+      <h2>{updateMessage}</h2>
       {errors ? <div>{errors}</div> : null}
       <br />
       <br />

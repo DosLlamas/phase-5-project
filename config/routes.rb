@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :medications
+  resources :medications, only: [:create]
   resources :patient_medications, only: [:user_index, :sort_by_meds, :sort_by_provider]
   resources :patients, only: [:index, :show, :update, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/search_prescription', to: 'patient_medications#user_index'
   get '/sort_by_meds', to: 'patient_medications#sort_by_meds'
   get '/sort_by_provider', to: 'patient_medications#sort_by_provider'
+  post 'add_medication', to: 'medication#create'
 
 
 

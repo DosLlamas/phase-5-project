@@ -7,19 +7,20 @@ import Login from "./Login";
 import Signup from "./Signup";
 import ProfilePage from "./ProfilePage";
 import Search from "./Search";
+import AddMedicationForm from "./AddMedicationForm";
 
 function App() {
   const navigate = useNavigate();
-
+  
   const [errors, setErrors] = useState(false);
   const [currentUser, setCurrentUser] = useState(false);
-  console.log(currentUser);
+  const [medication, setMedication] = useState(null)
 
   useEffect(() => {
     fetch("/authorized_user").then((res) => {
       if (res.ok) {
         res.json().then((patient) => {
-          patient.error ? setCurrentUser(null) : setCurrentUser(patient);
+          patient.errors ? setCurrentUser(null) : setCurrentUser(patient);
         });
       }
     });
@@ -60,6 +61,10 @@ function App() {
             <Route
               path="/search-prescriptions"
               element={<Search setCurrentUser={setCurrentUser} />}
+            />
+            <Route 
+            path="/add-medication"
+            element={<AddMedicationForm setMedication={setMedication}/>}
             />
             <Route
               path="*"

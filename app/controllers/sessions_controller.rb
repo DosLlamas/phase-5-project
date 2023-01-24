@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     skip_before_action :authorized_user, only: [:create]
-
     include ActionController::Cookies
+    
     def create
         patient = Patient.find_by(email: params[:email])
     
