@@ -1,5 +1,9 @@
 class MedicationsController < ApplicationController
 
+    def index
+        @medications = Medication.alphabetize
+        render json: @medications
+    end
     def create
         medication_new = Medication.new(new_medication_params)
         medication_new.patient = current_user

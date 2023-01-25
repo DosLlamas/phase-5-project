@@ -76,3 +76,10 @@ pm3 = PatientMedication.create(
     pharamacy_name: "Fast Pharmacy"
 )
 puts "🌱 PatientsMedications Done"
+
+puts "🌱 Seeding Schedules..."
+Schedule.create(
+    patient_medication_id: pm2.id,
+    time: "1300",
+    date: "02-09-2023"
+)

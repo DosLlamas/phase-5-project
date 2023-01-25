@@ -5,10 +5,10 @@ class PatientMedicationsController < ApplicationController
     end
 
     def sort_by_meds
-        render json: PatientMedication.all.sort_by {|m| m.medication.name.downcase}
+        render json: PatientMedication.where(patient_id: session[:patient_id]).all.sort_by {|m| m.medication.name.downcase}
     end
 
     def sort_by_provider
-        render json: PatientMedication.all.sort_by {|m| m.provider.downcase}
+        render json: PatientMedication.where(patient_id: session[:patient_id]).all.sort_by {|m| m.provider.downcase}
     end
 end

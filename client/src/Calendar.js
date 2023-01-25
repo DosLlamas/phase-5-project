@@ -123,18 +123,12 @@ const Calendar = ({showDetailsHandle, data}) => {
         <div className="col col-start">
           <div className="icon" onClick={() => changeWeekHandle("prev")}>
            ⇦
-            {/* <svg viewBox="0 0 24 24" class="dyAbMb">
-              <path d="M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z"></path>
-            </svg> */}
           </div>
         </div>
         <div className="data">{data}</div>
         <div className="col col-end" >
           <div className="icon" onClick={() => changeWeekHandle("next")}>
             ⇨
-            {/* <svg viewBox="0 0 24 24" >
-              <path d="M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z"></path>
-            </svg> */}
           </div>
         </div>
       </div>

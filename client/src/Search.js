@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import PrescriptionInfoCard from "./PrescriptionInfoCard";
+import MedicationInfoCard from "./MedicationInfoCard";
 
 const Search = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  
+  const [switchPage, setSwitchPage] = useState(true)
   const [patientMedData, setPatientMedData] = useState([]);
   const [endResultArray, setEndResultArray] = useState(patientMedData);
+  const [medData, setMedData] = useState([]);
+  const [medResultArray, setMedResultArray] = useState(medData);
   const [searchValue, setSearchValue] = useState("");
 
   const sortByMeds = (e) => {
@@ -33,6 +37,7 @@ const Search = () => {
   };
 
   useEffect(() => {
+
     fetch("/search_prescription").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
@@ -41,11 +46,20 @@ const Search = () => {
         });
       }
     });
+
+    fetch("/medications").then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setMedData(data);
+          setMedResultArray(data);
+        })
+      }
+    })
   }, []);
 
-  function handleSearch(e) {
+  function handlePrescriptionSearch(e) {
     setSearchValue(e.target.value);
-    const filteredProfiles = patientMedData.filter((dataObj) => {
+    const filteredPrescriptions = patientMedData.filter((dataObj) => {
       return (
         dataObj.medication.name
           .toLowerCase()
@@ -54,27 +68,53 @@ const Search = () => {
         dataObj.rx_number.toLowerCase().includes(searchValue.toLowerCase())
       );
     });
-    setEndResultArray(filteredProfiles);
+    setEndResultArray(filteredPrescriptions);
   }
-  const renderProfiles = endResultArray.map((finalDataObj) => {
+  function handleMedicationSearch(e){
+    setSearchValue(e.target.value);
+    const filteredMedications = medData.filter((dataObj) => {
+      return (
+        dataObj.name.toLowerCase().includes(searchValue.toLowerCase()) 
+      );
+    });
+    setMedResultArray(filteredMedications);
+  }
+
+  const renderPrescriptions = endResultArray.map((finalDataObj) => {
     return (
       <PrescriptionInfoCard key={finalDataObj.id} prescription={finalDataObj} />
+    );
+  });
+  const renderMedications = medResultArray.map((finalDataObj) => {
+    return (
+      <MedicationInfoCard key={finalDataObj.id} medication={finalDataObj} />
     );
   });
   const [isActive, setActive] = useState(false);
   const handleShowMenu = (e) => {
     setActive(!isActive);
   };
+  const handleSwitch = () =>{
+    setSwitchPage(!switchPage)
+  }
 
   return (
     <div>
+      {switchPage? 
+      <button onClick={handleSwitch} className="update-profile-btn">Database</button>
+      : 
+      <button onClick={handleSwitch} className="update-profile-btn">Your Prescriptions</button>
+      }
+      
+      {switchPage? 
+      <>
       <div className="SearchBox">
         <input
-          onChange={handleSearch}
+          onChange={handlePrescriptionSearch}
           value={searchValue}
           type="text"
           className="SearchBox-input"
-          placeholder="Search by name/provider/rx_number"
+          placeholder="Search by prescription name/provider/rx_number"
         />
       </div>
       <div onClick={handleShowMenu} className="btn btn-4 btn-sep icon-send">
@@ -88,7 +128,23 @@ const Search = () => {
           </div>
         </div>
       </div>
-      <ul className="cards">{renderProfiles}</ul>
+      <ul className="cards">{renderPrescriptions}</ul>
+      </>
+      :
+      <>
+       <div className="SearchBox">
+        <input
+          onChange={handleMedicationSearch}
+          value={searchValue}
+          type="text"
+          className="SearchBox-input"
+          placeholder="Search by medication name"
+        />
+      </div>
+      {renderMedications}
+      </>
+      }
+      
     </div>
   );
 };

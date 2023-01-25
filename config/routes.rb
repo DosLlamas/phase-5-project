@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :medications, only: [:create]
+  resources :schedules
+  resources :medications
   resources :patient_medications, only: [:user_index, :sort_by_meds, :sort_by_provider]
   resources :patients, only: [:index, :show, :update, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # get '/hello', to: 'application#hello_world'
   get '/authorized_user', to: 'patients#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to:'sessions#delete' 
@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   get '/sort_by_meds', to: 'patient_medications#sort_by_meds'
   get '/sort_by_provider', to: 'patient_medications#sort_by_provider'
   post 'add_medication', to: 'medication#create'
-
-
-
 
   # handles requests that aren't for the app's API routes by returning public/index.html
   get '*path',

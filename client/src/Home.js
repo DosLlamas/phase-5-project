@@ -14,6 +14,7 @@ const Home = ({ currentUser, setCurrentUser }) => {
     setData(dayStr);
     setShowDetails(true);
   };
+  console.log(currentUser)
 
   // useEffect(() => {
   //   fetch("/search_prescription").then((res) => {
@@ -25,18 +26,21 @@ const Home = ({ currentUser, setCurrentUser }) => {
   //     }
   //   });
   // }, []);
-
-
   return (
     <div className="Home">
       <Calendar showDetailsHandle={showDetailsHandle} data={data} />
+      <div className="add-delete">
+        <div className="plus-minus-btn">＋</div>
+        <div className="plus-minus-btn">−</div>
+      </div>
+
       <Container>
         <Table celled selectable collapsing>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Medication</Table.HeaderCell>
-              <Table.HeaderCell>Schedule</Table.HeaderCell>
-              <Table.HeaderCell>Notifications</Table.HeaderCell>
+              <Table.HeaderCell className="table-text-size">Medication</Table.HeaderCell>
+              <Table.HeaderCell className="table-text-size">Schedule</Table.HeaderCell>
+              <Table.HeaderCell className="table-text-size">Notifications</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           {/* An array here to list out all info */}

@@ -29,7 +29,7 @@ function App() {
   if (errors) return <h1>{errors}</h1>;
   return (
     <div className="App">
-      {!currentUser ? 
+      {!currentUser ?
         <>
           <Routes>
             <Route
