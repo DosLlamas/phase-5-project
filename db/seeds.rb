@@ -61,6 +61,38 @@ m8 = Medication.create(
     name: "Metformin",
     strength: "500mg"
 )
+m9 = Medication.create(
+    name: "Gabapentin",
+    strength: "300mg"
+)
+m10 = Medication.create(
+    name: "Zoloft",
+    strength: "50mg"
+)
+m11 = Medication.create(
+    name: "Singulair",
+    strength: "10mg"
+)
+m12 = Medication.create(
+    name: "Trazadone",
+    strength: "150mg"
+)
+m13 = Medication.create(
+    name: "Lexapro",
+    strength: "10mg"
+)
+m14 = Medication.create(
+    name: "Wellbutrin",
+    strength: "150mg"
+)
+m15 = Medication.create(
+    name: "Flonase",
+    strength: "2.5mg"
+)
+m16 = Medication.create(
+    name: "Humulin R",
+    strength: "1 unit"
+)
 puts "🌱 Medications done"
 
 
