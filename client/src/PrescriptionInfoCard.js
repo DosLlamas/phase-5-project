@@ -1,9 +1,7 @@
 import React from "react";
 
 function PrescriptionInfoCard( {prescription} ) {
-//   console.log(prescription.medication)
   return (
-    <li className="cards__item">
       <div className="card">
         <div className="card__content">
           <div className="card__title">{prescription.medication.name}</div>
@@ -16,8 +14,9 @@ function PrescriptionInfoCard( {prescription} ) {
 
           </div>
         </div>
+        <div className="info-card-divider"></div>
       </div>
-    </li>
+
   );
 }
 

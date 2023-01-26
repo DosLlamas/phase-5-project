@@ -252,13 +252,13 @@ h2{
   color: rgb(255, 255, 255);
   letter-spacing: 0.04166667em;
   line-height: 1rem;
-  background-color: #1a8fff;
+  background-color: rgba(77, 170, 91, 0.75);
 }
 .make-profile-btn:hover{
   font-weight: 600;
   background-color: #f1f3f4;
   border-color: transparent;
-  color: #1a8fff;
+  color: rgba(77, 170, 91, 0.75);
   transition: background 200ms ease-in,width 100ms ease-out;
 }
 .sign-out-btn{
@@ -392,7 +392,7 @@ input:focus{
 .calendar .header .icon:hover {
   /*transform: scale(1.75);*/
   transition: 0.25s ease-out;
-  color: var(--main-color);
+  color: rgba(77, 170, 91, 0.75);
   fill:var(--main-color);
 }
 
@@ -429,7 +429,7 @@ input:focus{
 
 .calendar .body .selected {
   border-left: 10px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
+  border-image: linear-gradient(45deg, #9c9c9c 0%, #e6e6e6 40%);
   border-image-slice: 1;
 }
 .calendar .body .today {
@@ -487,6 +487,86 @@ input:focus{
   width: calc(100% / 7);
 }
 .data{
-  color:#1a8fff;
+  color:rgb(95,99,104);
 }
 /* Calendar Component End*/
+
+/* Search */
+.SearchBox-input{
+  justify-content: left;
+  align-items: left;
+  right: 37%;
+}
+.menu-link{
+  text-align: center;
+  user-select: none;
+  padding: 0px 20px;
+  font-size: 15px;
+  transition: all 0.25s;
+  height: 50px;
+  /* background-color: rgba(255, 255, 255, 0.75); */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  fill: rgba(77, 170, 91, 0.75);
+}
+.menu-link:hover {
+  color: #fff;
+  background-color: rgba(77, 170, 91, 0.75);
+  fill: white;
+}
+.sort-button{
+  color:rgba(77, 170, 91, 0.75);
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  padding: 0px 20px;
+  font-size: 30px;
+  transition: all 0.25s;
+  background-color: rgb(231, 231, 231);
+  display: flex;
+  /* align-items: center; */
+  cursor: pointer;
+  fill: rgba(77, 170, 91, 0.75);
+}
+.sort-button:hover {
+  color: #fff;
+  background-color: rgba(77, 170, 91, 0.75);
+  fill: white;
+}
+.active {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all .25s;
+  /* height: 35px; */
+}
+.inactive {
+  opacity: 0;
+  display: none;
+  transition: all .25s;
+}
+.info-card-divider{
+  height: 1px;
+  justify-content: center;
+  /* margin-right: 11px; */
+  /* margin-left: 11px; */
+  /* -webkit-box-flex: 1; */
+  /* flex: 1 1 0%; */
+  background-image: linear-gradient(280deg, rgba(233, 237, 241, 0) 40%, rgb(161, 165, 190));
+  /* border-radius: 2px; */
+}
+
+.card:hover{
+  opacity: 0.7;
+  transition: 0.1s ease-in;
+  color: rgba(77, 170, 91, 0.75);
+}
+.card{
+  text-align: left;
+  padding: 0px 3%;
+}
+.card__content{
+  display: inline-block;
+  cursor: pointer;
+}

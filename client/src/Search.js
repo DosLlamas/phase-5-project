@@ -117,11 +117,11 @@ const Search = () => {
           placeholder="Search by prescription name/provider/rx_number"
         />
       </div>
-      <div onClick={handleShowMenu} className="btn btn-4 btn-sep icon-send">
+      <div onClick={handleShowMenu} className="sort-button">
         Sort By
         <div className={isActive ? "active" : "inactive"}>
           <div onClick={sortByMeds} className="menu-link">
-            <span>Med. Name</span>
+            <span>Medication Name</span>
           </div>
           <div onClick={sortByProvider} className="menu-link">
             <span>Provider</span>
