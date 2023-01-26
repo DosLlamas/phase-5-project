@@ -1,7 +1,6 @@
 import React from "react";
 
 function MedicationInfoCard( {medication} ) {
-//   console.log(prescription.medication)
   return (
     <li className="cards__item">
       <div className="card">

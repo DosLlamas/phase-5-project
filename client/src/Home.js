@@ -15,17 +15,6 @@ const Home = ({ currentUser, setCurrentUser }) => {
     setShowDetails(true);
   };
   console.log(currentUser)
-
-  // useEffect(() => {
-  //   fetch("/search_prescription").then((res) => {
-  //     if (res.ok) {
-  //       res.json().then((data) => {
-  //         setPatientMedData(data);
-  //         setEndResultArray(data);
-  //       });
-  //     }
-  //   });
-  // }, []);
   return (
     <div className="Home">
       <Calendar showDetailsHandle={showDetailsHandle} data={data} />

@@ -45,6 +45,22 @@ m4 = Medication.create(
     name: "Benadryl",
     strength: "25mg"
 )
+m5 = Medication.create(
+    name: "Lipitor",
+    strength: "10mg"
+)
+m6 = Medication.create(
+    name: "Adderall",
+    strength: "2.5mg"
+)
+m7 = Medication.create(
+    name: "Levothyroxine",
+    strength: "25mcg"
+)
+m8 = Medication.create(
+    name: "Metformin",
+    strength: "500mg"
+)
 puts "🌱 Medications done"
 
 
